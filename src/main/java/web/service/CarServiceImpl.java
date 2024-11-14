@@ -2,7 +2,6 @@ package web.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestParam;
 import web.model.Car;
 
 import java.util.ArrayList;
@@ -31,15 +30,14 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public String printCars(int count, ModelMap model) {
+    public List<Car> printCars(int count) {
         List<web.model.Car> carList;
         if (count >= 5){
             carList = getCars(Integer.MAX_VALUE);
         } else {
             carList = (count >= 0) ? getCars(count) : getCars(-1);
         }
-        model.addAttribute("cars", carList);
-        return "cars";
+        return carList;
     }
 
 }
