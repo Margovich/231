@@ -9,13 +9,14 @@
 <form th:method="post" th:action="@{/updateUser}" th:object="${user}">
   <input type="hidden" th:field="*{id}"/>
   <label>Insert name: </label>
-  <input type="text" th:field="*{nickname}" id="Nickname"/>
+  <input type="text" th:field="*{nickname}" id="Nickname" required/>
+  <div th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}">Nickname error</div>
 
   <label>Insert email: </label>
-  <input type="text" th:field="*{email}" id="Email"/>
+  <input type="email" th:field="*{email}" id="Email" required/>
 
   <label>Insert age: </label>
-  <input type="text" th:field="*{age}" id="Age"/>
+  <input type="number" th:field="*{age}" id="Age" min="0" required/>
 
   <button type="submit">save</button>
 </form>
