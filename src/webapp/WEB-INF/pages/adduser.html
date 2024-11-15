@@ -9,13 +9,13 @@
 <body>
 <form th:method="POST" th:action="@{/adduser}" th:object="${user}">
 
-  <label>Введите имя: </label>
+  <label>Inter name: </label>
   <input type="text" th:field="*{nickname}" id="Nickname"/>
 
-  <label>Введите Фамилию: </label>
+  <label>Inter Email: </label>
   <input type="text" th:field="*{email}" id="Email"/>
 
-  <label>Введите возраст: </label>
+  <label>Inter age: </label>
   <input type="text" th:field="*{age}" id="Age"/>
 
   <button type="submit">save</button>

@@ -13,25 +13,26 @@
     <th>Nickname</th>
     <th>Email</th>
     <th>Age</th>
+    <th>Actions</th> <!-- Добавлено для действий -->
   </tr>
   </thead>
   <tbody>
   <tr th:each="user : ${users}">
-    <td th:text="${user.getId()}">ID</td>
-    <td th:text="${user.getNickname()}">Nickname</td>
-    <td th:text="${user.getEmail()}">Email</td>
-    <td th:text="${user.getAge()}">Age</td>
+    <td th:text="${user.id}">ID</td>
+    <td th:text="${user.nickname}">Nickname</td>
+    <td th:text="${user.email}">Email</td>
+    <td th:text="${user.age}">Age</td>
     <td>
-      <a th:href="'/updateuser?id=' + ${user.id}" th:text="Update"></a>
-    </td>
-    <td>
-      <a th:href="'/deleteUser?id=' + ${user.id}" th:text="Delete"></a>
+      <a th:href="@{/updateUser(id=${user.id})}" th:text="Update"></a>
+      <a th:href="@{/deleteUser(id=${user.id})}" th:text="Delete"></a>
     </td>
   </tr>
   </tbody>
 </table>
+
 <form action="adduser" target="_blank">
   <button id="add-user-button">Add User</button>
 </form>
+
 </body>
 </html>
